@@ -1,0 +1,128 @@
+{
+  "source_rows": 17379,
+  "train_rows": 13003,
+  "validation_rows": 2208,
+  "test_rows": 2168,
+  "source_archive_sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401",
+  "test_start": "2012-10-01 00:00:00",
+  "test_end": "2012-12-31 23:00:00",
+  "calendar_model_test_mae": 68.483,
+  "ratio_5_model_scenario_cost": 125.814,
+  "ratio_5_seasonal_scenario_cost": 178.328,
+  "ratio_5_scenario_cost_change_pct": 29.45,
+  "ratio_5_hour_coverage_rate": 0.8658,
+  "missing_hour_slots": 165,
+  "selections": {
+    "2": {
+      "quantile": 0.6666666666666666,
+      "max_leaf_nodes": 15,
+      "validation_losses": [
+        94.04094841731384,
+        79.84865967490882
+      ]
+    },
+    "5": {
+      "quantile": 0.8333333333333334,
+      "max_leaf_nodes": 15,
+      "validation_losses": [
+        126.26955746002068,
+        92.77019122655305
+      ]
+    },
+    "10": {
+      "quantile": 0.9090909090909091,
+      "max_leaf_nodes": 15,
+      "validation_losses": [
+        144.75781931972062,
+        108.42899000685566
+      ]
+    }
+  },
+  "cost_sensitivity": {
+    "2": {
+      "constant": {
+        "mean_capacity": 198.0,
+        "mean_uncovered_requests": 89.43957564575646,
+        "mean_idle_capacity": 68.24308118081181,
+        "hour_coverage_rate": 0.5438191881918819,
+        "assumed_cost_per_hour": 247.12223247232473
+      },
+      "hour_workday": {
+        "mean_capacity": 199.26537515375156,
+        "mean_uncovered_requests": 48.02721402214022,
+        "mean_idle_capacity": 28.096094710947106,
+        "hour_coverage_rate": 0.40129151291512916,
+        "assumed_cost_per_hour": 124.15052275522757
+      },
+      "quantile_model": {
+        "mean_capacity": 271.2597956499148,
+        "mean_uncovered_requests": 14.636568411949892,
+        "mean_idle_capacity": 66.69986959692007,
+        "hour_coverage_rate": 0.6623616236162362,
+        "assumed_cost_per_hour": 95.97300642081986
+      }
+    },
+    "5": {
+      "constant": {
+        "mean_capacity": 315.0,
+        "mean_uncovered_requests": 48.404981549815496,
+        "mean_idle_capacity": 144.20848708487085,
+        "hour_coverage_rate": 0.7366236162361623,
+        "assumed_cost_per_hour": 386.23339483394835
+      },
+      "hour_workday": {
+        "mean_capacity": 241.87476937269372,
+        "mean_uncovered_requests": 25.9416512915129,
+        "mean_idle_capacity": 48.61992619926202,
+        "hour_coverage_rate": 0.6074723247232472,
+        "assumed_cost_per_hour": 178.32818265682653
+      },
+      "quantile_model": {
+        "mean_capacity": 309.1053868752287,
+        "mean_uncovered_requests": 5.9841597807973645,
+        "mean_idle_capacity": 95.89305219108142,
+        "hour_coverage_rate": 0.8657749077490775,
+        "assumed_cost_per_hour": 125.81385109506824
+      }
+    },
+    "10": {
+      "constant": {
+        "mean_capacity": 412.0,
+        "mean_uncovered_requests": 27.922047970479706,
+        "mean_idle_capacity": 220.72555350553506,
+        "hour_coverage_rate": 0.8353321033210332,
+        "assumed_cost_per_hour": 499.9460332103321
+      },
+      "hour_workday": {
+        "mean_capacity": 276.1793861120429,
+        "mean_uncovered_requests": 14.071746058369682,
+        "mean_idle_capacity": 71.05463770546793,
+        "hour_coverage_rate": 0.7333948339483395,
+        "assumed_cost_per_hour": 211.77209828916472
+      },
+      "quantile_model": {
+        "mean_capacity": 333.8988309502055,
+        "mean_uncovered_requests": 3.302359715030178,
+        "mean_idle_capacity": 118.004696200291,
+        "hour_coverage_rate": 0.9211254612546126,
+        "assumed_cost_per_hour": 151.0282933505928
+      }
+    }
+  },
+  "features": [
+    "hr",
+    "weekday",
+    "workingday",
+    "holiday",
+    "mnth",
+    "time_index"
+  ],
+  "limitations": [
+    "Demand is observed rentals, not latent demand or stockouts.",
+    "Capacity means hypothetical hourly service throughput, not physical fleet size.",
+    "No trip durations, station balances or rebalancing costs available.",
+    "Training precedes 2012 Q3 validation and Q4 test; growth/seasonality can cause drift.",
+    "Shortage/idle costs are scenario assumptions, not measured savings.",
+    "Missing recorded hours are not imputed as zero."
+  ]
+}
