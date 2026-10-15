@@ -1,0 +1,51 @@
+{
+  "state": [
+    {
+      "target": "gateway-a",
+      "status": "up",
+      "failures": 0,
+      "successes": 2,
+      "first_failure": null,
+      "last_ts": 1700000050.0
+    },
+    {
+      "target": "gateway-b",
+      "status": "up",
+      "failures": 0,
+      "successes": 2,
+      "first_failure": null,
+      "last_ts": 1700000150.0
+    }
+  ],
+  "incidents": [
+    {
+      "id": 2,
+      "target": "gateway-b",
+      "started": 1700000110.0,
+      "detected": 1700000120.0,
+      "closed": 1700000150.0
+    },
+    {
+      "id": 1,
+      "target": "gateway-a",
+      "started": 1700000010.0,
+      "detected": 1700000020.0,
+      "closed": 1700000050.0
+    }
+  ],
+  "sample_metrics": [
+    {
+      "target": "gateway-a",
+      "samples": 6,
+      "healthy_samples": 3,
+      "mean_latency_ms": 1002.0
+    },
+    {
+      "target": "gateway-b",
+      "samples": 6,
+      "healthy_samples": 3,
+      "mean_latency_ms": 1002.0
+    }
+  ],
+  "threshold": 2
+}
