@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Service Monitor</title>
+<style>body{max-width:1000px;margin:45px auto;padding:0 20px;font:17px/1.5 system-ui;color:#182538}table{width:100%;border-collapse:collapse}td,th{padding:12px;border-bottom:1px solid #d5dfe7;text-align:left}pre{white-space:pre-wrap;background:#f0f4f8;padding:18px}.down{color:#a11}.up{color:#175e43}button{padding:8px 16px}small{color:#536174}</style>
+<h1>Service Health and Incident Timeline</h1><p>Loopback monitoring demo. Two consecutive failures open an incident; two consecutive successes close it.</p><button id="refresh">Refresh</button><p id="notice" role="status"></p>
+<h2>Targets</h2><table><thead><tr><th>Target</th><th>Confirmed state</th><th>Latest sample UTC</th><th>Failure streak</th></tr></thead><tbody id="targets"></tbody></table>
+<h2>Incidents</h2><table><thead><tr><th>Target</th><th>First failure UTC</th><th>Confirmed recovery UTC</th><th>Observed span</th></tr></thead><tbody id="incidents"></tbody></table>
+<h2>Sample metrics</h2><pre id="metrics"></pre><small>Observed sample health is not continuous-time uptime. Incident spans include confirmation delay. Demo samples are synthetic. Built with AI assistance.</small>
+<script>
+function cell(row,value,cls){const td=document.createElement('td');td.textContent=value;if(cls)td.className=cls;row.append(td)}
+function date(value){return new Date(value*1000).toISOString()}
+async function refresh(){try{const response=await fetch('/api/status');if(!response.ok)throw Error('HTTP '+response.status);const data=await response.json();const targets=document.getElementById('targets');targets.replaceChildren();for(const state of data.state){const row=document.createElement('tr');cell(row,state.target);cell(row,state.status,state.status);cell(row,date(state.last_ts));cell(row,state.failures);targets.append(row)}const incidents=document.getElementById('incidents');incidents.replaceChildren();for(const event of data.incidents){const row=document.createElement('tr');cell(row,event.target);cell(row,date(event.started));cell(row,event.closed===null?'Open':date(event.closed));cell(row,event.closed===null?'Pending':(event.closed-event.started)+' seconds');incidents.append(row)}document.getElementById('metrics').textContent=JSON.stringify(data.sample_metrics,null,2);document.getElementById('notice').textContent=data.state.length?'Updated '+new Date().toISOString():'No samples yet. Configure a loopback target or load demo data.'}catch(error){document.getElementById('notice').textContent='Unable to refresh: '+error.message}}
+document.getElementById('refresh').addEventListener('click',refresh);refresh();
+</script></html>
+
