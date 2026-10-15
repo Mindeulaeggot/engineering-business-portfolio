@@ -1,0 +1,17 @@
+PASS price_time_fifo
+PASS best_price
+PASS sell_crossing
+PASS noncrossing
+PASS cancel
+PASS unknown_cancel
+PASS duplicate_id_after_fill
+PASS invalid_values
+PASS notional_limit
+PASS replace_loses_priority
+PASS invalid_replace_atomic
+PASS replace_crosses
+PASS self_trade_cancel_resting
+PASS kill_switch_cancel_allowed
+PASS malformed_command
+PASS randomized_deterministic_replay_5000
+16 tests passed

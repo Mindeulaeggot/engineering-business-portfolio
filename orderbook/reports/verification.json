@@ -1,0 +1,15 @@
+{
+  "unit_tests_passed": 16,
+  "randomized_replay_commands": 5000,
+  "independent_oracle_commands": 2000,
+  "independent_oracle_exact_match": true,
+  "process_replay_exact_match": true,
+  "compiler": "g++.EXE (Rev4, Built by MSYS2 project) 16.2.0",
+  "build_flags": [
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-O2"
+  ]
+}

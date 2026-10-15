@@ -1,0 +1,13 @@
+1 ADD s1 seller1 S 100 10 => OK
+2 ADD s2 seller2 S 100 20 => OK
+3 ADD b1 buyer1 B 101 15 => OK | TRADE s1 b1 100 10 | TRADE s2 b1 100 5
+4 REPLACE s2 99 5 => OK
+5 ADD b2 buyer2 B 99 5 => OK | TRADE s2 b2 99 5
+6 ADD b3 buyer3 B 98 10 => OK
+7 KILL 1 => OK
+8 ADD rejected buyer4 B 100 1 => REJECT kill_switch_active
+9 CANCEL b3 => OK
+10 KILL 0 => OK
+11 ADD risklimit buyer5 B 1000000 101 => REJECT notional_limit
+FINAL SNAPSHOT
+halted=0
