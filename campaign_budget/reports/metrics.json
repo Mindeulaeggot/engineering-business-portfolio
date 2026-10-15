@@ -1,0 +1,128 @@
+{
+  "source_rows": 41188,
+  "train_rows": 24712,
+  "validation_rows": 8238,
+  "test_rows": 8238,
+  "source_archive_sha256": "e0bf5f5de5b846e2f18e9d90606637267d46dfa260e0f17bb12e605db5efbeb4",
+  "selected_model": "random_forest",
+  "validation_average_precision": {
+    "logistic_regression": 0.10035108027814002,
+    "random_forest": 0.10137121226064119
+  },
+  "train_positive_rate": 0.048074,
+  "validation_positive_rate": 0.110706,
+  "test_positive_rate": 0.308327,
+  "test_average_precision": 0.372547,
+  "test_roc_auc": 0.606409,
+  "test_brier_score": 0.256264,
+  "budget_20pct_contacts": 1647,
+  "budget_20pct_precision": 0.363084,
+  "budget_20pct_recall": 0.235433,
+  "budget_20pct_lift": 1.178,
+  "prior_success_baseline_20pct_precision": 0.562234,
+  "features": [
+    "previous",
+    "pdays",
+    "poutcome",
+    "contact",
+    "month",
+    "day_of_week",
+    "emp.var.rate",
+    "cons.price.idx",
+    "cons.conf.idx",
+    "euribor3m",
+    "nr.employed"
+  ],
+  "budget_results": {
+    "0.1": {
+      "contacts": 823,
+      "observed_positives": 322,
+      "precision": 0.39125151883353587,
+      "recall": 0.12677165354330708,
+      "lift_vs_random_expectation": 1.2689488236813655
+    },
+    "0.2": {
+      "contacts": 1647,
+      "observed_positives": 598,
+      "precision": 0.3630843958712811,
+      "recall": 0.23543307086614174,
+      "lift_vs_random_expectation": 1.1775941941683519
+    },
+    "0.3": {
+      "contacts": 2471,
+      "observed_positives": 983,
+      "precision": 0.39781464993929583,
+      "recall": 0.38700787401574804,
+      "lift_vs_random_expectation": 1.2902350733070547
+    },
+    "0.5": {
+      "contacts": 4119,
+      "observed_positives": 1606,
+      "precision": 0.389900461277009,
+      "recall": 0.6322834645669292,
+      "lift_vs_random_expectation": 1.2645669291338584
+    },
+    "1.0": {
+      "contacts": 8238,
+      "observed_positives": 2540,
+      "precision": 0.3083272638990046,
+      "recall": 1.0,
+      "lift_vs_random_expectation": 1.0
+    }
+  },
+  "scenarios": [
+    {
+      "assumed_margin": 20,
+      "assumed_cost": 1,
+      "illustrative_value": 10313
+    },
+    {
+      "assumed_margin": 20,
+      "assumed_cost": 3,
+      "illustrative_value": 7019
+    },
+    {
+      "assumed_margin": 20,
+      "assumed_cost": 5,
+      "illustrative_value": 3725
+    },
+    {
+      "assumed_margin": 50,
+      "assumed_cost": 1,
+      "illustrative_value": 28253
+    },
+    {
+      "assumed_margin": 50,
+      "assumed_cost": 3,
+      "illustrative_value": 24959
+    },
+    {
+      "assumed_margin": 50,
+      "assumed_cost": 5,
+      "illustrative_value": 21665
+    },
+    {
+      "assumed_margin": 100,
+      "assumed_cost": 1,
+      "illustrative_value": 58153
+    },
+    {
+      "assumed_margin": 100,
+      "assumed_cost": 3,
+      "illustrative_value": 54859
+    },
+    {
+      "assumed_margin": 100,
+      "assumed_cost": 5,
+      "illustrative_value": 51565
+    }
+  ],
+  "limitations": [
+    "Historical contacted population only; no randomized no-contact control.",
+    "Not causal uplift, incremental deposits or deployable profit.",
+    "Row order is chronological per UCI; no customer IDs or exact timestamps.",
+    "Macro drift and repeated clients can affect evaluation.",
+    "Excluding demographic variables does not establish fairness.",
+    "Planned contact context must be known at scoring time."
+  ]
+}
