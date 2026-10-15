@@ -1,0 +1,8 @@
+.deps/
+.tmp/
+__pycache__/
+*.exe
+*.sqlite
+*/data/
+.venv/
+

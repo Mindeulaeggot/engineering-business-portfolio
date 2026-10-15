@@ -1,0 +1,56 @@
+{
+  "checks": [
+    {
+      "project": "campaign_budget",
+      "command": [
+        "analysis.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "project": "campaign_budget",
+      "command": [
+        "-m",
+        "unittest",
+        "-v",
+        "test_analysis"
+      ],
+      "exit_code": 0
+    },
+    {
+      "project": "capacity_planning",
+      "command": [
+        "analysis.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "project": "capacity_planning",
+      "command": [
+        "-m",
+        "unittest",
+        "-v",
+        "test_analysis"
+      ],
+      "exit_code": 0
+    },
+    {
+      "project": "orderbook",
+      "command": [
+        "verify.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "project": "service_monitor",
+      "command": [
+        "-m",
+        "unittest",
+        "-v",
+        "test_monitor"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "all_passed": true
+}
