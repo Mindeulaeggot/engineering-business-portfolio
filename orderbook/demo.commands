@@ -1,0 +1,12 @@
+# Integer price ticks and quantities; simulation only. No exchange connections.
+ADD s1 seller1 S 100 10
+ADD s2 seller2 S 100 20
+ADD b1 buyer1 B 101 15
+REPLACE s2 99 5
+ADD b2 buyer2 B 99 5
+ADD b3 buyer3 B 98 10
+KILL 1
+ADD rejected buyer4 B 100 1
+CANCEL b3
+KILL 0
+ADD risklimit buyer5 B 1000000 101
